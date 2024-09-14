@@ -7,20 +7,20 @@
             <div class="login">
                 <p>老年健康服务平台</p>
             </div>
-            <form action="" @submit.prevent="submitForm">
+            <form action="">
                 <!-- 用户名输入框 -->
                 <div class="userName">
-                    <input type="text" v-model="formData.userName" id="userName" placeholder="请输入用户名" style="height: 45px; width: 370px; border-radius: 15px; border-color: white; padding-left: 10px;
+                    <input type="text" v-model="loginForm.username" placeholder="请输入用户名" style="height: 45px; width: 370px; border-radius: 15px; border-color: white; padding-left: 10px;
                         text-indent: 20px;">
                 </div>
                 <!-- 密码输入框 -->
                 <div class="passWd">
-                    <input type="password" v-model="formData.passWd" id="passWd" placeholder="请输入用户名" style="height: 45px; width: 370px; border-radius: 15px; border-color: white; padding-left: 10px;
+                    <input type="password" v-model="loginForm.password" placeholder="请输入用户名" style="height: 45px; width: 370px; border-radius: 15px; border-color: white; padding-left: 10px;
                         text-indent: 20px;">
                 </div>
                 <!-- 登录按钮 -->
                 <div class="login_bottom">
-                    <input type="button" @click="onSubmit" value="登录" style="height: 38px; width: 150px; border-radius: 15px;
+                    <input type="button" @click="login" class="login-button" value="登录" style="height: 38px; width: 150px; border-radius: 15px;
                      border-color: white; padding-left: 10px; font-size: 23px; font-family: 宋体;
                      background-color: rgb(153,153,255);  box-shadow: 2px 2px 5px 2px gray;">
                 </div>
@@ -34,46 +34,34 @@
 </template>
 
 <script>
-import axios from 'axios';
-
+/* eslint-disable */
 export default {
+    name: 'Login',
     data() {
         return {
-            // 表单数据
-            formData: {},
-        };
-    },
-    created() {
-        // 使用created钩子来初始化表单数据  
-        // 这里可以根据需要设置默认值或其他逻辑  
-        this.formData = {
-            username: '初始用户名', // 可以根据需要设置为空字符串或其他默认值  
-            passWd: '',
-        };
+            loginForm: {
+                username: '',
+                password: ''
+            },
+            responseResult: []
+        }
     },
     methods: {
-        async handleLogin() {
-            try {
-                // 发送post请求到后端接口
-                // eslint-disable-next-line no-unused-vars
-                const response = await axios.post('http://localhost:5080/oleman/login', {
-                    username: this.userName,
-                    password: this.passWd
+        login() {
+            this.$axios
+                .post('http://localhost:5081/api/oldman/login', {
+                    username: this.loginForm.username,
+                    password: this.loginForm.password
                 })
-                alert('登录成功!')
-            } catch (error) {
-                let errorMessage = '';
-                if (error.response && error.response.data && error.response.data.message) {
-                    this.errorMessage = error.response.data.message;
-                }
-                // 如果没有获取到错误信息，则不设置errorMessage，直接显示弹窗  
-                if (!errorMessage) {
-                    alert('登录过程中发生错误，请稍后再试。');
-                } else {
-                    // 如果有错误信息，则显示该错误信息  
-                    alert(errorMessage);
-                }
-            }
+                .then(successResponse => {
+                    if (successResponse.data.code === 200) {
+                        this.$router.replace({ path: '/index' })
+                    }else{
+                        alert('用户名或密码错误')
+                    }
+                })
+                .catch(failResponse => {
+                })
         }
     }
 }

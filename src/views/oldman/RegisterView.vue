@@ -12,7 +12,7 @@
                 </div>
                 <!-- 密码输入框 -->
                 <div class="passWd">
-                    <input type="text"  placeholder="请输入密码" style="height: 45px; width: 370px; border-radius: 15px; border-color: white; padding-left: 10px;
+                    <input type="text" placeholder="请输入密码" style="height: 45px; width: 370px; border-radius: 15px; border-color: white; padding-left: 10px;
                         text-indent: 20px;">
                 </div>
                 <!-- 手机号输入框 -->
@@ -44,6 +44,38 @@
 </template>
 
 <script>
+import axios from 'axios';
+
+export default {
+    data() {
+        return {
+            userName: '',
+            passWd: '',
+            phone: '',
+            authCode: ''
+        }
+    },
+    methods: {
+        async register() {
+            try {
+                // 后端的API是/oldman/register
+                // 下面的那个注释是确保代码如果没有使用到也不会报错
+                // eslint-disable-next-line no-unused-vars 
+                const response = await axios.post('http://localhost:5080/oldman/register', {
+                    username: this.userName,
+                    password: this.passWd,
+                    phone: this.phone,
+                    authCode: this.authCode
+                })
+                //// 处理注册成功的响应  
+                alert('注册成功！');
+            } catch (error) {
+                // 处理注册失败的情况  
+                console.error('注册失败:', error.response.data);
+            }
+        }
+    }
+}
 
 </script>
 
