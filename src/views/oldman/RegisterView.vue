@@ -76,7 +76,7 @@ export default {
 
 </script>
 
-<style>
+<style scoped>
 .loginView {
     position: relative;
     left: 20px;
