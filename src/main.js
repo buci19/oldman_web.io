@@ -5,12 +5,46 @@ import axios from "axios"
 // 引入ElemantUI组件
 import ElementUI from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';
+import { getToken } from '@/utils/jwtUtils';
+// import pluginState from 'pinia-plugin-persistedstate'
+import { createPinia } from 'pinia';
+
+// 创建 Pinia 实例
+const pinia = createPinia();
+Vue.use(pinia);
+
+// 创建并挂载 Vue 实例
+new Vue({
+  router,
+  render: h => h(App)
+}).$mount('#app');
+
+// 让请求携带上浏览器的cookie
+axios.defaults.withCredentials = true;
+
+// 设置请求拦截器
+axios.interceptors.request.use(
+  config => {
+    // 从localStorage或其他地方获取JWT Token
+    const token = localStorage.getItem(getToken);
+    console.log(token);
+
+    if (token) {
+      // 如果Token存在，添加到请求头
+      config.headers['Authorization'] = `Bearer ${token}`;
+    }
+    return config;
+  },
+  error => {
+    // 请求错误处理
+    return Promise.reject(error);
+  }
+);
 
 // 全局注册，之后可在其他组件中通过 this.$axios 发送数据
-Vue.prototype.$axios = axios
-
-Vue.config.productionTip = false
-Vue.use(ElementUI)
+Vue.prototype.$axios = axios;
+Vue.config.productionTip = false;
+Vue.use(ElementUI);
 
 // 创建 axios 实例
 const instance = axios.create({
@@ -18,25 +52,4 @@ const instance = axios.create({
   // 其他配置...
 });
 
-// 添加全局响应拦截器
-instance.interceptors.response.use(response => {
-  console.log(response)
-  // 对响应数据做点什么
-  return response;
-}, error => {
-  // 对响应错误做点什么
-  if (error.response && error.response.data === 'NOT_LOGIN') {
-    // 清除旧的token或用户信息
-    // localStorage.removeItem('userToken');
-    // 跳转到登录页面
-    instance.$router.replace({ path: '/oldman/Login' });
-  }
-  return Promise.reject(error);
-});
-
 export default instance;
-
-new Vue({
-  router,
-  render: h => h(App)
-}).$mount('#app')

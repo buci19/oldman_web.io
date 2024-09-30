@@ -1,128 +1,222 @@
+<!-- 健康知识库-营养饮食 -->
 <template>
-    <div>
-        <div class="leftTitle">老年健康促进行动 | 老年健康小知识</div>
-        <div class="Sccontent">
-            <div>
-                <div class="imgTitle">1.三餐规律、控制食量</div>
-                <div class="Images"><img src="@/assets/images/HknowHealthyEat1.png" alt=""
-                        style="width: 300px; height: auto;">
-                </div>
-                <div class="imgRight">合理的餐次安排非常重要</div>
-                <div class="imgContent">用餐时间应尽量固定，每餐吃到八分饱，细嚼慢咽，这样利于养成良好的生活习惯，切忌饥一顿饱一顿，长期如此不利于健康。最少保证三餐，尽量按照早、中、晚餐2:2:1的热量分配方式;三餐之外，上午或下午可以有个小加餐，如水果、酸奶或坚果等。</div>
+    <div class="body">
+        <div class="nav">
+            <router-link title="返回首页" :to="{ path: '/oldman/index' }">首页</router-link>&nbsp;&nbsp;>&nbsp;&nbsp;
+            <router-link title="返回健康知识库" :to="{ path: '/oldman/Hknowledge' }">健康知识库</router-link>&nbsp;&nbsp;>&nbsp;&nbsp;
+            <router-link :to="{ path: '/oldman/HknowHealthyEat' }">营养饮食</router-link>
+        </div>
+        <div class="title">
+            合理膳食，均衡营养
+        </div>
+        <div class="content">
+            膳食营养是保证老年人健康的基础。与年轻时相比，老年人身体机能有不少的变化，如：合成代谢降低；肌肉量减少，骨骼的矿物质减少、消化酶、消化液分泌减少导致消化功能减退。
+        </div>
+        <div class="content1">
+            <div class="content1-img"><img src="@/assets/images/HknowHealthyEat6.jpg" alt=""></div>
+            <div class="content1-title">1、食物多样化，主食应粗细搭配</div>
+            <div class="content1-content">
+                每天食物应包括五大类：谷薯类、鱼禽蛋肉类、豆类奶类、蔬菜水果类和油脂，最好能吃12种以上的食物，注意荤素搭配。每天主食摄入量约200克～300克，如果消化功能较好建议适当吃些全谷物食品或粗粮。
             </div>
-            <div>
-                <div class="imgTitle">2.清淡饮食，少油少盐</div>
-                <div class="Images"><img src="@/assets/images/HknowHealthyEat2.png" alt=""
-                        style="width: 300px; height: auto;">
-                </div>
-                <div class="imgRight">增强心肺</div>
-                <div class="imgRight">预防骨质疏松</div>
-                <div class="imgContent">选择用油少的烹调方式如蒸、煮、炖、焯避免摄入过多的脂肪导致肥胖。少用各种含钠高的酱油料，避免过多的钠摄入引起高血
-建议老年人每天用油不超过25克，尽量选择食用植物油，避免动物油。全天用盐不超过5克(大概一啤酒盖)，合并高血压的老人应将盐控制在4克以内。</div>
+            <div class="content1-title2">2、常吃鱼、禽、蛋和瘦肉类，保证优质蛋白质供应</div>
+            <div class="content1-content">
+                动物食物是优质蛋白的重要来源，后者是维护正常免疫所必需的营养。建议每天吃鱼类等水产食物40克～75克，蛋类40克～50克，禽畜肉40克～75克。
             </div>
-            <div>
-                <div class="imgTitle">3.鱼离肉蛋奶不能少，拒绝纯素食</div>
-                <div class="Images"><img src="@/assets/images/HknowHealthyEat3.png" alt=""
-                        style="width: 300px; height: auto;">
-                </div>
-                <div class="imgRight">营养充分</div>
-                <div class="imgRight">规律用餐</div>
-                <div class="imgContent">奶类富含钙，是优质蛋白质和B族维生素的良好来源，每日应摄入300-500ML。(对于乳糖不耐受的人，可多选择舒化奶、酸奶或奶酪等发酵乳制品。)同时每日应摄入适量的豆制品，如豆浆、豆腐、豆干等。鱼、禽、蛋类和瘦肉摄入要适量，平均每天120~200G;每周最好吃鱼2次或300~500G，蛋类300~350G，畜禽肉300~500G。优先选择鱼，少吃肥肉、烟熏和腌制肉制品。</div>
+        </div>
+        <div class="content3">
+            <div class="content3-title">3、适量摄入奶类、大豆及其制品</div>
+            <div class="content3-content">
+                建议每天喝250毫升～300毫升鲜牛奶或相当量的奶制品。对乳糖不耐受者，可尝试酸奶等，同时每日应摄入适量的豆制品，如豆浆、豆腐、豆干等。
             </div>
-            <div>
-                <div class="imgTitle">4.主食多样化</div>
-                <div class="Images"><img src="@/assets/images/HknowHealthyEat4.png" alt=""
-                        style="width: 300px; height: auto;">
-                </div>
-                <div class="imgRight">营养充分</div>
-                <div class="imgRight">规律用餐</div>
-                <div class="imgContent">精细粮食与杂粮谷物搭配，如玉米面、养麦燕麦等，由于它们体积大，饱腹感强，可能对控制血糖、血压和血脂有利。建议:根据身体活动水平不同，男性每日摄入谷类250~300G女性200~250G，其中粗粮摄入量每日50~100G。</div>
+        </div>
+        <div class="content2">
+            <div class="content2-title">4、摄入足量蔬菜、水果，尽量选择新鲜和当季的品种</div>
+            <div class="content2-content">
+                建议每天摄入300克～500克蔬菜，其中深色蔬菜占总量的一半以上；水果推荐量为200克左右。糖尿病患者在食用蔬菜水果时需要注意多样化选择、适量摄入、控制糖分和碳水化合物含量以及监测血糖变化等方面的问题。每个人的病情和身体状况不同，因此在制定饮食计划时最好咨询医生或营养师的专业意见。
             </div>
-            <div>
-                <div class="imgTitle">5.蔬菜水果不能少</div>
-                <div class="Images"><img src="@/assets/images/HknowHealthyEat5.png" alt=""
-                        style="width: 300px; height: auto;">
-                </div>
-                <div class="imgRight">营养充分</div>
-                <div class="imgRight">规律用餐</div>
-                <div class="imgContent">每日推荐摄入蔬菜300-500G，其中深色蔬菜0深绿色、红色、桔红色、紫红色蔬菜)要占一半;可适量选用含粗纤维多的蔬菜。紫色的富含花青素，如茄子:绿色的富含叶绿素、叶黄素如菠菜;黄色的富含B-胡萝卜素，如柑桔;红色的富含番茄红素，如西红柿。
-建议每天食用200-350克的新鲜水果。建议两餐之间食用。如果患有糖尿病等疾病，则需根据血糖情况，酌情选择。</div>
+            <div class="content2-img"><img src="@/assets/images/HknowHealthyEat7.jpg" alt=""></div>
+        </div>
+        <div class="content3">
+            <div class="content3-title">5、饮食清淡，少油、限盐。</div>
+            <div class="content3-content">减少心血管疾病风险：
+                清淡饮食有助于降低血脂水平，因为油脂摄入过多是动脉粥样硬化的危险因素之一。老年人通过减少油腻食物的摄入，可以有效预防高脂血症、冠心病等心血管疾病的发生。
+                限盐饮食有助于降低高血压的风险。高血压是老年人常见的慢性疾病，而食盐过量是高血压的重要诱因。通过限制食盐摄入，可以维持血压的稳定，减少心脑血管意外的发生。
+                <br>预防糖尿病：
+                清淡饮食中的低糖、低脂特点有助于预防糖尿病的发生。过多的糖分和脂肪摄入会增加胰岛素分泌负担，长期以往可能导致胰岛功能受损，进而引发糖尿病。
+                <br>预防肥胖：
+                少油饮食有助于控制总热量摄入，减少脂肪堆积，从而预防肥胖。肥胖是多种慢性疾病的危险因素，包括心血管疾病、糖尿病等。
             </div>
+        </div>
+        <div class="content4">
+            <div class="content4-img"><img src="@/assets/images/HknowHealthyEat5.png" alt=""></div>
+            <div class="content4-title">6、摄入充足食物，预防营养缺乏，鼓励老年人与家人共同用餐，愉悦用餐，保障营养需求</div>
+            <div class="content4-content">
+                一定要经常关注老人的营养摄入，对于食物摄入不足或怀疑有营养不良的长者，应寻求医生帮助，必要时在医生指导下进行适当的营养支持治疗，及时改善营养状况，减少疾病或并发症发生的风险。
+            </div>
+        </div>
+        <div class="footer">
+            <router-link :to="{ path: '/oldman/index' }">关于我们</router-link>
+            <router-link :to="{ path: '/oldman/index' }">联系我们</router-link>
+            <router-link :to="{ path: '/oldman/index' }">官方抖音</router-link>
+            <router-link :to="{ path: '/oldman/index' }">加入我们</router-link>
         </div>
     </div>
 </template>
 
 <script>
-
 export default {
+
 }
 </script>
 
 <style scoped>
-
-.Sccontent {
-    width: 78vw;
-    height: 80vh;
-    padding-top: 20vh;
-    padding-left: 20vw;
+.body {
+    width: 80vw;
+    margin: 0 auto;
 }
 
+.nav {
+    margin-top: 2vw;
+}
 
+.nav a {
+    color: #403f3f;
+}
 
-.leftTitle {
-    width: 100vw;
-    height:10vh;
+.nav a:hover {
+    color: rgb(161, 82, 236);
+}
+
+.title {
+    height: 10vh;
     line-height: 10vh;
-    background-color: #fff;
-    position: fixed;
-    z-index: 1000;
-    /* float: left; */
-    font-size: 2vw;
-    text-align: center;
-    margin-top: 9.05vh;
-}
-
-
-.Sccontent>div {
-    padding: 3vh;
-}
-
-.Sccontent>div {
-    float: left;
-    margin-bottom: 10vh;
-}
-
-.imgTitle {
-    width: 10vw;
-    height: 4.5vh;
     font-size: 2vw;
     font-weight: bold;
-    border-bottom: 1vh solid #96a5be;
+    text-align: center;
+}
+
+.content {
+    font-size: 1.2vw;
+    line-height: 4.5vh;
+}
+
+.content1 {
+    float: left;
+    width: 80vw;
+    margin-top: 3vw;
+}
+
+.content1 .content1-img {
+    width: 40vw;
+    float: left;
+}
+
+.content1 .content1-img img {
+    width: 40vw;
+}
+
+.content1-title {
+    font-size: 1.2vw;
+    font-weight: bold;
+    margin-left: 45vw;
+}
+
+.content1-title2 {
+    font-size: 1.2vw;
+    font-weight: bold;
+    margin-left: 45vw;
+    margin-top: 3vw;
+}
+
+.content1-content {
+    font-size: 1.2vw;
+    line-height: 4.5vh;
+    margin: 3vw 0 0 45vw;
+}
+
+.content2 {
+    float: left;
+    margin-top: 3vw;
+}
+
+.content2-title {
+    font-size: 1.2vw;
+    font-weight: bold;
+}
+
+.content2-content {
+    font-size: 1.2vw;
+    margin-top: 3vw;
+    line-height: 4.5vh;
+}
+
+.content2-img img {
+    width: 80vw;
+    float: left;
+}
+
+.content3 {
+    float: left;
+    margin-top: 3vw;
+}
+
+.content3-title {
+    font-size: 1.2vw;
+    font-weight: bold;
+}
+
+.content3-content {
+    font-size: 1.2vw;
+    margin-top: 3vw;
+    line-height: 4.5vh;
+}
+
+.content4 {
+    float: left;
+    width: 80vw;
+    margin-top: 3vw;
+}
+
+.content4-title {
+    width: 40vw;
+    font-size: 1.2vw;
+    font-weight: bold;
+}
+
+.content4-content {
+    width: 35vw;
+    font-size: 1.2vw;
+    line-height: 4.5vh;
+    margin-top: 3vw;
+}
+
+.content4 .content4-img {
+    width: 40vw;
+    float: right;
+}
+
+.content4 .content4-img img {
+    float: right;
+    width: 40vw;
+    margin-bottom: 3vw;
+}
+
+.footer {
+    float: left;
+    width: 80vw;
+    height: 20vh;
+    line-height: 20vh;
+    text-align: center;
+    font-size: 0.8vw;
+    border-top: 1px solid #000;
+}
+
+.footer a {
+    margin: 1vw 2vw;
     color: #000;
 }
 
-img {
-    max-width: 100%;
-    /* 确保图片不会超出容器宽度 */
-    height: auto;
-    /* 保持图片的原始宽高比 */
-}
-
-.Images {
-    float: left;
-}
-
-.imgRight {
-    width: 60vw;
-    color: red;
-    font-size: 3vw;
-    text-align: center;
-    margin: 4vh auto;
-}
-
-
-.imgContent {
-    float: left;
-    font-size: 1.5vw;
+.footer a:hover {
+    color: blue;
 }
 </style>

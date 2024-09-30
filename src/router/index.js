@@ -38,15 +38,10 @@ const routes = [
     name: 'Register',
     component: () => import('../views/oldman/RegisterView.vue')
   },
-  // {
-  //   path: '/oldman/Nav',
-  //   name: 'Nav',
-  //   component: () => import('../views/oldman/NavView.vue')
-  // },
   {
-    path: '/oldman/HknowAcknowledge',
-    name: 'HknowAcknowledge',
-    component: () => import('../views/oldman/HknowAcknowledgeView.vue')
+    path: '/oldman/HknowRest',
+    name: 'HknowRest',
+    component: () => import('../views/oldman/HknowRestView.vue')
   },
   {
     path: '/oldman/HknowSportInstruction',
@@ -79,9 +74,9 @@ const routes = [
     component: () => import('../views/oldman/HknowledgeView.vue'),
   },
   {
-    path:'/oldman/userCenter',
-    name:'userCenter',
-    component:()=>import('../views/oldman/UserCenterView.vue')
+    path: '/Oldman/userCenter',
+    name: 'userCenter',
+    component: () => import('../views/oldman/UserCenterView.vue')
   }
 ]
 

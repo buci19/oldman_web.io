@@ -9,11 +9,12 @@
         <div class="nav_body">
             <div class="nav_body_font" v-if="showSection === 'basicInfo'">基本资料</div>
             <div class="nav_body_body" v-if="showSection === 'basicInfo'">
-                <span>昵称: <input type="text" style="border-color: aliceblue; width: 20vw;"></span><br>
-                <span>年龄: <input type="text" style="border-color: aliceblue; width: 20vw;"></span><br>
-                <span>性别: <input id="man" type="radio" checked="checked" name="1" />男<input id="woman" type="radio"
-                        name="1" />女</span><br>
-                <button>保存</button>
+                <span>昵称: <input class="input_style" type="text" v-model="username"></span><br>
+                <span>性别: <input id="man" type="radio" checked="checked" name="1" />男<input v-model="gender" id="woman"
+                        type="radio" name="1" />女</span><br>
+                <span style="position: relative; right: 3vw;">个人签名: <input v-model="faction" type="text"
+                        class="input_style"></span><br>
+                <button @click="save">保存</button>
             </div>
             <div class="nav_body_font" v-if="showSection === 'changePassword'">修改密码</div>
             <div class="nav_body_body" v-if="showSection === 'changePassword'">
@@ -38,18 +39,72 @@
     </div>
 </template>
 <script>
+/* eslint-disable */
+import { watch } from 'vue';
+import { useTokenStore } from '@/store/token';
+import { jwtDecode } from 'jwt-decode';
+
 export default {
     data() {
         return {
-            showSection: 'basicInfo' // 初始显示基本资料  
+            showSection: 'basicInfo',
+            username: '',
+            gender: '',
+            faction: ''
         };
+    },
+    methods: {
+        save() {
+            const tokenStore = useTokenStore();
+            this.$axios
+                .post('/api/oldman/save',{
+                    username: tokenStore.username,
+                    gender: this.gender,
+                    faction: this.faction
+                })
+                .then(successResponse => {
+                    if (successResponse.data.code === 1) {
+                        alert('保存成功')
+                    }
+                })
+        }
+    },
+    created() {
+        const tokenStore = useTokenStore();
+        this.username = tokenStore.username;
+        this.gender = tokenStore.gender;
+        this.faction = tokenStore.faction;
+        watch(() => tokenStore.username, (newUsername) => {
+            this.username = newUsername;
+        });
+        watch(() => tokenStore.gender, (newGender) => {
+            this.gender = newGender;
+        });
+        watch(() => tokenStore.faction, (newFaction) => {
+            this.faction = newFaction;
+        });
+
     }
-}
+};
+
+
 </script>
 <style>
 * {
     margin: 0;
     padding: 0;
+}
+
+.input_style {
+    width: 13vw;
+    height: 3vh;
+    border-color: aliceblue;
+    border-radius: 5px;
+}
+
+.input_style:focus {
+    border-color: aliceblue;
+    outline: none;
 }
 
 .nav_header {
@@ -136,7 +191,7 @@ export default {
 }
 
 .left_nav button:hover {
-    background-color: rgb(212, 217, 236);
+    color: rgb(212, 217, 236);
 }
 
 .nav_body {
@@ -163,8 +218,8 @@ export default {
     width: 50vw;
     height: 50vh;
     position: relative;
-    left: 10vw;
-    top: 10vh;
+    left: 15vw;
+    top: 15vh;
 }
 
 .nav_body_body span {
@@ -178,9 +233,10 @@ export default {
 .nav_body_body button {
     font-size: 20px;
     background-color: rgb(92, 173, 255);
-    width: 20vw;
+    width: 10vw;
     position: relative;
-    left: 4vw;
+    left: 3vw;
+    top: 1vh;
     border-color: aliceblue;
 }
 </style>

@@ -6,11 +6,16 @@
             </div>
             <div class="logoContent">老年健康服务平台</div>
             <div class="nav-links">
-                <div class="ai"><router-link :to="{ path: '/Oldman/Aianswer' }" class="ai-inner"><i>AI</i> 答疑解惑</router-link></div>
-                <div class="nav-link"><router-link :to="{ path: '/oldman/index' }" class="nav-link-inner">首页</router-link></div>
-                <div class="nav-link"><router-link :to="{ path: '/oldman/Hknowledge' }" class="nav-link-inner">健康知识库</router-link></div>
-                <div class="nav-link"><router-link :to="{ path: '/oldman/Memoirs' }" class="nav-link-inner">回忆录</router-link></div>
-                <div class="nav-link"><router-link :to="{ path: '/oldman/Healthysport' }" class="nav-link-inner">康复运动与指导</router-link></div>
+                <div class="ai"><router-link :to="{ path: '/Oldman/Aianswer' }" class="ai-inner"><i>AI</i>
+                        答疑解惑</router-link></div>
+                <div class="nav-link"><router-link :to="{ path: '/oldman/index' }"
+                        class="nav-link-inner">首页</router-link></div>
+                <div class="nav-link"><router-link :to="{ path: '/oldman/Hknowledge' }"
+                        class="nav-link-inner">健康知识库</router-link></div>
+                <div class="nav-link"><router-link :to="{ path: '/oldman/Memoirs' }"
+                        class="nav-link-inner">回忆录</router-link></div>
+                <div class="nav-link"><router-link :to="{ path: '/oldman/Healthysport' }"
+                        class="nav-link-inner">康复运动与指导</router-link></div>
             </div>
             <div class="actions">
                 <div class="login">
@@ -29,7 +34,7 @@
             <p class="Chinese">欢迎来到老年健康服务平台</p>
             <p class="English">Welcome to the Elderly Health Service Platform</p>
             <div class="understand">
-                <router-link :to="{path: '/oldman/Hknowledge/HknowAcknowledge'}" class="understand-inner">
+                <router-link :to="{ path: '/oldman/Hknowledge/HknowAcknowledge' }" class="understand-inner">
                     进入了解
                 </router-link>
             </div>
@@ -52,10 +57,12 @@
     border-bottom: 1px solid #868181;
     background-color: #fff;
 }
-.logoContent{
+
+.logoContent {
     font-size: 1.5vw;
     font-weight: bold;
 }
+
 #logo {
     margin-left: 7vw;
 
@@ -78,12 +85,15 @@
     color: #fffffffb;
     cursor: pointer;
 }
-.header .nav-links .ai .ai-inner{
-    display: block; /* 使router-link充满整个父div */  
-    width: 100%;  
-    height: 100%; 
-    color: inherit; 
+
+.header .nav-links .ai .ai-inner {
+    display: block;
+    /* 使router-link充满整个父div */
+    width: 100%;
+    height: 100%;
+    color: inherit;
 }
+
 .header .nav-links .ai:hover {
     background-image: linear-gradient(to bottom right, rgb(104, 106, 237), rgb(97, 82, 236), rgb(52, 58, 232));
 }
@@ -102,12 +112,14 @@
 .ai-inner,
 .login-inner,
 .register-inner,
-.understand-inner{
-    display: block; /* 使router-link充满整个父div */  
-    width: 100%;  
-    height: 100%; 
-    color: inherit; 
+.understand-inner {
+    display: block;
+    /* 使router-link充满整个父div */
+    width: 100%;
+    height: 100%;
+    color: inherit;
 }
+
 .header .nav-links .nav-link:hover {
     border-bottom: 4px solid rgb(161, 82, 236);
     color: rgb(161, 82, 236);
@@ -178,6 +190,7 @@
 }
 
 .content .Chinese {
+
     font-family: STKaiti;
     font-size: 50px;
     color: #564d4d;

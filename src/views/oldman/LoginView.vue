@@ -21,20 +21,40 @@
                 <!-- 登录按钮 -->
                 <div class="login_bottom">
                     <input type="button" @click="login" class="login-button" value="登录" style="height: 38px; width: 150px; border-radius: 15px;
-                     border-color: white; padding-left: 10px; font-size: 23px; font-family: 宋体;
-                     background-color: rgb(153,153,255);  box-shadow: 2px 2px 5px 2px gray;">
+                     border: none; padding-left: 10px; font-size: 23px; font-family: 宋体; font-weight: bold;
+                     background: linear-gradient(-200deg, #fac0e7, #aac2ee); color: #fff; ">
                 </div>
             </form>
             <!-- 写一个跳转注册的文字，使用超链接来接受 -->
             <div class="registerView">
-                <router-link :to="{ path: '/register' }">还没注册？</router-link>
+                <router-link :to="{ path: '/oldman/Register' }">还没注册？</router-link>
             </div>
+        </div>
+        <div class="square">
+            <ul>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+            </ul>
+        </div>
+        <div class="circle">
+            <ul>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+            </ul>
         </div>
     </div>
 </template>
 
 <script>
 /* eslint-disable */
+import {useTokenStore} from '@/store/token';
+import { jwtDecode } from 'jwt-decode';
 export default {
     name: 'Login',
     data() {
@@ -48,36 +68,162 @@ export default {
     },
     methods: {
         login() {
+            const tokenStore = useTokenStore();
             this.$axios
-                .post('http://localhost:5081/api/oldman/login', {
+                .post('/api/oldman/login', {
                     username: this.loginForm.username,
                     password: this.loginForm.password
                 })
                 .then(successResponse => {
-                    if (successResponse.data.code === 200) {
-                        this.$router.replace({ path: '/index' })
-                    }else{
-                        alert('用户名或密码错误')
+                    if (successResponse.data.code === 1) {
+                        // 假设后端在登录成功时返回的响应体直接是JWT
+                        const jwt = successResponse.data.data;
+                        console.log(jwt);
+                        const decodeToken = jwtDecode(jwt)
+                        const username = decodeToken.username;
+                        const gender = decodeToken.gender;
+                        const faction = decodeToken.faction;
+                        if (jwt) {
+                            tokenStore.updateToken(jwt);
+                            // 导航到首页
+                            this.$router.replace({ path: '/oldman/index' });
+                            console.log(jwt);
+                            console.log(username,gender,faction);
+
+                        } else {
+                            // 假设后端在登录失败时返回的响应体是一个错误信息
+                            const errorMessage = successResponse.data.message || '用户名或密码错误';
+                            alert(errorMessage);
+                        }
+                    }
+                    else{
+                        alert('登录失败');
                     }
                 })
-                .catch(failResponse => {
-                })
+
+
+
         }
     }
 }
 </script>
 
 <style scoped>
+ul li {
+    position: relative;
+    border: 1px solid #fff;
+    width: 30px;
+    height: 30px;
+    background-color: #fff;
+    list-style-type: none;
+    opacity: 0;
+}
+
+.square ul li {
+    bottom: 0vh;
+    left: 20vw;
+    /* 执行动画，动画名 时长 线性的 无限次播放 */
+    animation: square 10s linear infinite;
+}
+
+.square li:nth-child(2) {
+    bottom: 60vh;
+    left: 20vw;
+    /* 设置动画延迟 */
+    animation-delay: 2s;
+}
+
+.square li:nth-child(3) {
+    bottom: 70vh;
+    left: 76vw;
+    /* 设置动画延迟 */
+    animation-delay: 4s;
+}
+
+.square li:nth-child(4) {
+    bottom: 10vh;
+    left: 75vw;
+    /* 设置动画延迟 */
+    animation-delay: 6s;
+}
+
+.square li:nth-child(5) {
+    bottom: 50vh;
+    left: 70vw;
+    /* 设置动画延迟 */
+    animation-delay: 8s;
+}
+
+.circle li {
+    bottom: 0;
+    left: 15vw;
+    /* 执行动画 */
+    animation: circle 10s linear infinite;
+}
+
+.circle li:nth-child(2) {
+    left: 35vw;
+    /* 设置动画延迟 */
+    animation-delay: 2s;
+}
+
+.circle li:nth-child(3) {
+    left: 55vw;
+    /* 设置动画延迟 */
+    animation-delay: 6s;
+}
+
+.circle li:nth-child(4) {
+    left: 75vw;
+    /* 设置动画延迟 */
+    animation-delay: 4s;
+}
+
+.circle li:nth-child(5) {
+    left: 90vw;
+    /* 设置动画延迟 */
+    animation-delay: 8s;
+}
+
+/* 定义动画 */
+@keyframes square {
+    0% {
+        transform: scale(0) rotateY(0deg);
+        opacity: 1;
+        bottom: 0;
+        border-radius: 0;
+    }
+
+    100% {
+        transform: scale(5) rotateY(1000deg);
+        opacity: 0;
+        bottom: 90;
+        border-radius: 50%;
+    }
+}
+
+@keyframes circle {
+    0% {
+        transform: scale(0) rotateY(0deg);
+        opacity: 1;
+    }
+
+    100% {
+        transform: scale(5) rotateY(1000deg);
+        opacity: 0;
+    }
+}
+
 /* 中间的登录页面 */
 .center {
-    width: 480px;
-    height: 600px;
+    width: 32vw;
+    height: 75vh;
     margin: auto;
     /* margin-top: 200px; */
     position: relative;
     top: 60px;
     border-radius: 20px;
-    background: linear-gradient(to bottom right, rgb(187, 189, 240), rgb(178, 102, 255));
+    background: linear-gradient(200deg, #e3beee, #9bb8ee);
     box-shadow: 5px 5px 13px 5px gray;
 }
 
@@ -183,6 +329,8 @@ body {
     background-size: cover;
     background-attachment: fixed;
     background-position: center;
-    background: linear-gradient(to bottom right, rgb(211, 187, 240), rgb(178, 102, 255));
+    /* background: linear-gradient(to bottom right, rgb(211, 187, 240), rgb(178, 102, 255)); */
+    background: linear-gradient(200deg, #e3c5eb, #a9c1ed);
+    overflow: hidden;
 }
 </style>
