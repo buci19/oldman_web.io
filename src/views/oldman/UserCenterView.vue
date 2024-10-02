@@ -9,20 +9,23 @@
         <div class="nav_body">
             <div class="nav_body_font" v-if="showSection === 'basicInfo'">基本资料</div>
             <div class="nav_body_body" v-if="showSection === 'basicInfo'">
-                <span>昵称: <input class="input_style" type="text" v-model="username"></span><br>
-                <span>性别: <input id="man" type="radio" checked="checked" name="1" />男<input v-model="gender" id="woman"
-                        type="radio" name="1" />女</span><br>
-                <span style="position: relative; right: 3vw;">个人签名: <input v-model="faction" type="text"
-                        class="input_style"></span><br>
-                <button @click="save">保存</button>
+                <span>昵称: {{ username }}</span>
+                <br>
+                <span>性别:
+                    <input id="man" type="radio" value="1" v-model="gender" :checked="gender === '1'" />男
+                    <input type="radio" id="woman" value="0" v-model="gender" :checked="gender === '0'" />女
+                </span><br>
+                <!-- <button @click="save">保存</button> -->
             </div>
             <div class="nav_body_font" v-if="showSection === 'changePassword'">修改密码</div>
             <div class="nav_body_body" v-if="showSection === 'changePassword'">
-                <span>原密码: <input type="text" style="border-color: aliceblue; width: 20vw;"></span><br>
-                <span>新密码: <input type="text" style="border-color: aliceblue; width: 20vw;"></span><br>
-                <span style="right: 1.5vw;">确认密码: <input type="text"
+                <span>原密码: <input v-model="oldPassword" type="text"
                         style="border-color: aliceblue; width: 20vw;"></span><br>
-                <button>保存</button>
+                <span>新密码: <input v-model="newPassword" type="text"
+                        style="border-color: aliceblue; width: 20vw;"></span><br>
+                <span style="right: 1.5vw;">确认密码: <input v-model="IsnewPassword" type="text"
+                        style="border-color: aliceblue; width: 20vw;"></span><br>
+                <button @click="changePassword">保存</button>
             </div>
         </div>
         <!-- 侧边头像 -->
@@ -40,54 +43,24 @@
 </template>
 <script>
 /* eslint-disable */
-import { watch } from 'vue';
-import { useTokenStore } from '@/store/token';
-import { jwtDecode } from 'jwt-decode';
-
 export default {
     data() {
         return {
             showSection: 'basicInfo',
             username: '',
-            gender: '',
-            faction: ''
+            gender: 1,
+            faction: '',
+            oldPassword: '',
+            newPassword: '',
+            IsnewPassword: ''
         };
     },
-    methods: {
-        save() {
-            const tokenStore = useTokenStore();
-            this.$axios
-                .post('/api/oldman/save',{
-                    username: tokenStore.username,
-                    gender: this.gender,
-                    faction: this.faction
-                })
-                .then(successResponse => {
-                    if (successResponse.data.code === 1) {
-                        alert('保存成功')
-                    }
-                })
-        }
-    },
     created() {
-        const tokenStore = useTokenStore();
-        this.username = tokenStore.username;
-        this.gender = tokenStore.gender;
-        this.faction = tokenStore.faction;
-        watch(() => tokenStore.username, (newUsername) => {
-            this.username = newUsername;
-        });
-        watch(() => tokenStore.gender, (newGender) => {
-            this.gender = newGender;
-        });
-        watch(() => tokenStore.faction, (newFaction) => {
-            this.faction = newFaction;
-        });
-
+        // 在组件创建时从localStorage获取username
+        this.username = localStorage.getItem('username') || '默认用户名';
     }
-};
 
-
+}
 </script>
 <style>
 * {

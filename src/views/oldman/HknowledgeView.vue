@@ -126,7 +126,6 @@
 
 <script>
 /* eslint-disable */
-import { useTokenStore } from '@/store/token';
 export default {
     data() {
         return {
@@ -135,8 +134,7 @@ export default {
     },
     methods: {
         userCenter() {
-            const tokenStore = useTokenStore();
-            if (tokenStore.token) {
+            if (localStorage.getItem('token')) {
                 // 如果 token 存在，则假设用户已经登录，跳转到用户中心
                 this.$router.replace({ path: '/Oldman/userCenter' });
             } else {
@@ -197,7 +195,7 @@ export default {
 }
 
 .header-user {
-    margin-left: 70vw;
+    margin-left: 62vw;
     font-size: 1.2vw;
     display: flex;
     align-items: center;
@@ -279,9 +277,12 @@ export default {
     line-height: 1.5;
     display: -webkit-box;
     -webkit-line-clamp: 2;
-    -webkit-box-orient: vertical;
+    -webkit-box-orient: vertical; 
     overflow: hidden;
     text-overflow: ellipsis;
     height: 3vw;
+}
+.content ul li .content-inner .Cinner-introduce:hover{
+    color: rgb(147, 172, 241);
 }
 </style>

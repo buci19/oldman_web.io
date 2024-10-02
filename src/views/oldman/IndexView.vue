@@ -1,3 +1,4 @@
+<!-- 首页 -->
 <template>
     <div id="main">
         <div class="header">
@@ -14,19 +15,28 @@
                         class="nav-link-inner">健康知识库</router-link></div>
                 <div class="nav-link"><router-link :to="{ path: '/oldman/Memoirs' }"
                         class="nav-link-inner">回忆录</router-link></div>
-                <div class="nav-link"><router-link :to="{ path: '/oldman/Healthysport' }"
-                        class="nav-link-inner">康复运动与指导</router-link></div>
+                <div class="nav-link"><router-link :to="{ path: '/oldman/Healthyguide' }"
+                        class="nav-link-inner">健康指导</router-link></div>
             </div>
             <div class="actions">
-                <div class="login">
+                <div class="login" v-if="!isLoggedIn">
                     <router-link :to="{ path: '/oldman/Login' }" class="login-inner">
                         登录
                     </router-link>
                 </div>
-                <div class="register">
+                <div class="register" v-if="!isLoggedIn">
                     <router-link :to="{ path: '/oldman/Register' }" class="register-inner">
                         免费注册
                     </router-link>
+                </div>
+                <div v-if="isLoggedIn"><img :src="userImg" @click="toggleDropdown" alt=""
+                        style="width: 2vw; position: relative; left: 10vw; cursor: pointer;"></div>
+                <!-- 下拉菜单 -->
+                <div class="dropdown-menu" v-if="showDropdown">
+                    <ul>
+                        <li @click="userCenter" class="dropdown-item">个人中心</li>
+                        <li @click="logout" class="dropdown-item">退出登录</li>
+                    </ul>
                 </div>
             </div>
         </div>
@@ -34,7 +44,7 @@
             <p class="Chinese">欢迎来到老年健康服务平台</p>
             <p class="English">Welcome to the Elderly Health Service Platform</p>
             <div class="understand">
-                <router-link :to="{ path: '/oldman/Hknowledge/HknowAcknowledge' }" class="understand-inner">
+                <router-link :to="{ path: '/oldman/Hknowledge' }" class="understand-inner">
                     进入了解
                 </router-link>
             </div>
@@ -43,6 +53,39 @@
 </template>
 
 <script>
+/* eslint-disable */
+export default {
+    data() {
+        return {
+            isLoggedIn: false,
+            userImg: require('@/assets/images/user.png'), // 确保路径正确
+            showDropdown: false, // 控制下拉框显示的状态
+        }
+    },
+    methods: {
+        checkLogin() {
+            if (localStorage.getItem('token')) {
+                this.isLoggedIn = true;
+                this.userImg = require('@/assets/images/user.png');
+            }
+        },
+        toggleDropdown() {
+            this.showDropdown = !this.showDropdown; // 切换下拉菜单的显示状态
+        },
+        userCenter() {
+            this.$router.replace({ path: '/Oldman/userCenter' });
+        },
+        logout() {
+            localStorage.clear();
+            this.$router.replace({ path: '/oldman/Login' });
+        }
+
+    },
+    created() {
+        this.checkLogin(); // 在组件创建时检查登录状态
+    }
+}
+
 </script>
 
 <style scoped>
@@ -56,6 +99,41 @@
     align-items: center;
     border-bottom: 1px solid #868181;
     background-color: #fff;
+}
+
+.dropdown-menu{
+    position: relative;
+    top: 9vh;
+    left: 6.6vw;
+    width: 5vw;
+    height: 10vh;
+    background-color: #d6e7fb;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    line-height: 5vh;
+    padding-top: 1vh;
+    text-align: center;
+    
+    z-index: 1;
+}
+
+.dropdown-menu ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.dropdown-item {
+  /* padding: 12px 16px; */
+  cursor: pointer;
+  transition: background-color 0.3s; /* 添加平滑过渡效果 */
+}
+
+.dropdown-item:hover {
+  background-color: #f1f1f1; /* 鼠标悬停时的背景色 */
 }
 
 .logoContent {
@@ -130,7 +208,6 @@
     color: rgb(161, 82, 236);
 }
 
-
 .actions {
     display: flex;
     color: #8a5b8e;
@@ -176,7 +253,8 @@
     width: 100vw;
     height: 100vh;
     overflow: hidden;
-    background-image: linear-gradient(to bottom right, rgb(206, 240, 180), rgb(187, 231, 244), rgb(135, 235, 156));
+    background-color: #d8e5f7;
+    /* background-image: linear-gradient(to bottom right, rgb(206, 240, 180), rgb(187, 231, 244), rgb(135, 235, 156)); */
 }
 
 
@@ -190,7 +268,6 @@
 }
 
 .content .Chinese {
-
     font-family: STKaiti;
     font-size: 50px;
     color: #564d4d;

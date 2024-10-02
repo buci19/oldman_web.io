@@ -19,9 +19,9 @@ const routes = [
     component: () => import('../views/oldman/AianswerView.vue')
   },
   {
-    path: '/oldman/Healthysport',
-    name: 'Healthysport',
-    component: () => import('../views/oldman/HealthysportView.vue')
+    path: '/oldman/Healthyguide',
+    name: 'Healthyguide',
+    component: () => import('../views/oldman/HealthyguideView.vue')
   },
   {
     path: '/oldman/Memoirs',
@@ -77,6 +77,11 @@ const routes = [
     path: '/Oldman/userCenter',
     name: 'userCenter',
     component: () => import('../views/oldman/UserCenterView.vue')
+  },
+  {
+    path: '/oldman/HguideHypertension',
+    name: 'HguideHypertension',
+    component: () => import('../views/oldman/HguideHypertensionView.vue')
   }
 ]
 

@@ -53,7 +53,7 @@
 
 <script>
 /* eslint-disable */
-import {useTokenStore} from '@/store/token';
+import { useTokenStore } from '@/store/token';
 import { jwtDecode } from 'jwt-decode';
 export default {
     name: 'Login',
@@ -79,30 +79,24 @@ export default {
                         // 假设后端在登录成功时返回的响应体直接是JWT
                         const jwt = successResponse.data.data;
                         console.log(jwt);
-                        const decodeToken = jwtDecode(jwt)
-                        const username = decodeToken.username;
-                        const gender = decodeToken.gender;
-                        const faction = decodeToken.faction;
                         if (jwt) {
-                            tokenStore.updateToken(jwt);
-                            // 导航到首页
+                            localStorage.setItem('token', jwt);
+                            const username = jwtDecode(jwt).username;
+                            const gender = jwtDecode(jwt).gender;
+                            const faction = jwtDecode(jwt).faction;
+                            localStorage.setItem('username', username);
+                            localStorage.setItem('gender', gender);
+                            localStorage.setItem('faction', faction);
+                            console.log(localStorage.getItem('username'));
+                            console.log(localStorage.getItem('gender'));
+                            localStorage.setItem('faction', faction);
                             this.$router.replace({ path: '/oldman/index' });
-                            console.log(jwt);
-                            console.log(username,gender,faction);
-
-                        } else {
-                            // 假设后端在登录失败时返回的响应体是一个错误信息
-                            const errorMessage = successResponse.data.message || '用户名或密码错误';
-                            alert(errorMessage);
+                        }else{
+                            alert('用户名或密码错误');
                         }
-                    }
-                    else{
-                        alert('登录失败');
+
                     }
                 })
-
-
-
         }
     }
 }
