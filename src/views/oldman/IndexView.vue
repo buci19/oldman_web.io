@@ -14,7 +14,7 @@
                 <div class="nav-link"><router-link :to="{ path: '/oldman/Hknowledge' }"
                         class="nav-link-inner">健康知识库</router-link></div>
                 <div class="nav-link"><router-link :to="{ path: '/oldman/Memoirs' }"
-                        class="nav-link-inner">回忆录</router-link></div>
+                        class="nav-link-inner">山河记忆</router-link></div>
                 <div class="nav-link"><router-link :to="{ path: '/oldman/Healthyguide' }"
                         class="nav-link-inner">健康指导</router-link></div>
             </div>

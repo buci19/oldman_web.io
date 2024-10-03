@@ -82,7 +82,8 @@ const routes = [
     path: '/oldman/HguideHypertension',
     name: 'HguideHypertension',
     component: () => import('../views/oldman/HguideHypertensionView.vue')
-  }
+  },
+  
 ]
 
 const router = new VueRouter({
