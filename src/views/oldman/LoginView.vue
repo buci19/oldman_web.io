@@ -53,7 +53,6 @@
 
 <script>
 /* eslint-disable */
-import { useTokenStore } from '@/store/token';
 import { jwtDecode } from 'jwt-decode';
 export default {
     name: 'Login',
@@ -68,14 +67,14 @@ export default {
     },
     methods: {
         login() {
-            const tokenStore = useTokenStore();
+            // const tokenStore = useTokenStore();
             this.$axios
                 .post('/api/oldman/login', {
                     username: this.loginForm.username,
                     password: this.loginForm.password
                 })
                 .then(successResponse => {
-                    if (successResponse.data.code === 1) {
+                    if (successResponse.data.code === 200) {
                         // 假设后端在登录成功时返回的响应体直接是JWT
                         const jwt = successResponse.data.data;
                         console.log(jwt);
@@ -84,12 +83,15 @@ export default {
                             const username = jwtDecode(jwt).username;
                             const gender = jwtDecode(jwt).gender;
                             const faction = jwtDecode(jwt).faction;
+                            const id = jwtDecode(jwt).id;
                             localStorage.setItem('username', username);
                             localStorage.setItem('gender', gender);
                             localStorage.setItem('faction', faction);
+                            localStorage.setItem('id', id);
                             console.log(localStorage.getItem('username'));
                             console.log(localStorage.getItem('gender'));
-                            localStorage.setItem('faction', faction);
+                            console.log(localStorage.getItem('faction'));
+                            console.log(localStorage.getItem('id'));
                             this.$router.replace({ path: '/oldman/index' });
                         }else{
                             alert('用户名或密码错误');

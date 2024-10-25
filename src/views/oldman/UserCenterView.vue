@@ -1,3 +1,4 @@
+<!-- eslint-disable vue/multi-word-component-names -->
 <template>
     <div class="body">
         <!-- 导航栏 -->
@@ -15,7 +16,11 @@
                     <input id="man" type="radio" value="1" v-model="gender" :checked="gender === '1'" />男
                     <input type="radio" id="woman" value="0" v-model="gender" :checked="gender === '0'" />女
                 </span><br>
-                <!-- <button @click="save">保存</button> -->
+                <span  style="position: relative; right: 1.3vw;">手机号: {{ phone }}</span><br>
+                <span>签名: {{ faction }}</span>
+                <button @click="handleClick('父组件')"
+                    style="position: relative; bottom: 44vh; left: 42vw; width: 4vw; height: 3vh; color: white; background-color: rgb(92, 173, 255); border-color: aliceblue;">操作</button>
+                <dialog-component v-if="Visiable" ref="dialog"></dialog-component>
             </div>
             <div class="nav_body_font" v-if="showSection === 'changePassword'">修改密码</div>
             <div class="nav_body_body" v-if="showSection === 'changePassword'">
@@ -25,7 +30,7 @@
                         style="border-color: aliceblue; width: 20vw;"></span><br>
                 <span style="right: 1.5vw;">确认密码: <input v-model="IsnewPassword" type="text"
                         style="border-color: aliceblue; width: 20vw;"></span><br>
-                <button @click="changePassword">保存</button>
+                <button class="btn" @click="changePassword">保存</button>
             </div>
         </div>
         <!-- 侧边头像 -->
@@ -43,6 +48,7 @@
 </template>
 <script>
 /* eslint-disable */
+import dialogComponent from './dialogComponent.vue';
 export default {
     data() {
         return {
@@ -50,14 +56,34 @@ export default {
             username: '',
             gender: 1,
             faction: '',
+            phone: '',
             oldPassword: '',
             newPassword: '',
-            IsnewPassword: ''
+            IsnewPassword: '',
+            Visiable: false
         };
+    },
+    components: {
+        dialogComponent
     },
     created() {
         // 在组件创建时从localStorage获取username
         this.username = localStorage.getItem('username') || '默认用户名';
+        this.gender = localStorage.getItem('gender') || 1;
+        this.faction = localStorage.getItem('faction') || '默认签名';
+        this.phone = localStorage.getItem('phone') || '默认手机号';
+    },
+    methods: {
+        // 7.实现点击事件
+        handleClick(data) {
+            this.Visiable = true;
+            this.$nextTick(() => {
+                //这里的dialog与上面dialog-component组件里面的ref属性值是一致的
+                //init调用的是dialog-component组件里面的init方法
+                //data是传递给弹窗页面的值
+                this.$refs.dialog.init(data);
+            })
+        },
     }
 
 }
@@ -191,7 +217,7 @@ export default {
     width: 50vw;
     height: 50vh;
     position: relative;
-    left: 15vw;
+    left: 12vw;
     top: 15vh;
 }
 
@@ -201,9 +227,10 @@ export default {
     font-weight: bold;
     position: relative;
     display: block;
+    line-height: 5vh;
 }
 
-.nav_body_body button {
+.btn {
     font-size: 20px;
     background-color: rgb(92, 173, 255);
     width: 10vw;

@@ -9,6 +9,19 @@ import { getToken } from '@/utils/jwtUtils';
 // import pluginState from 'pinia-plugin-persistedstate'
 import { createPinia } from 'pinia';
 
+// 全局设置cookie
+Vue.prototype.$setCookie = function(name, value, seconds) {
+  seconds = seconds || 0;
+  var expires = "";
+  if (seconds != 0) {
+    var date = new Date();
+    date.setTime(date.getTime() + (seconds * 1000));
+    expires = "; expires=" + date.toGMTString();
+  }
+  document.cookie = name + "=" + encodeURIComponent(value) + expires + "; path=/"; // 使用encodeURIComponent代替escape
+};
+
+
 // 创建 Pinia 实例
 const pinia = createPinia();
 Vue.use(pinia);

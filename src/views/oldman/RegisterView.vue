@@ -78,7 +78,7 @@ export default {
                     .then(successResponse => {
                         if (successResponse.data.code === 200) {
                             alert('注册成功')
-                            this.$router.replace({ path: '/' })
+                            this.$router.replace({ path: '/oldman/Login' })
                         } else {
                             alert('注册失败')
                         }

@@ -24,11 +24,6 @@ const routes = [
     component: () => import('../views/oldman/HealthyguideView.vue')
   },
   {
-    path: '/oldman/Memoirs',
-    name: 'Memoirs',
-    component: () => import('../views/oldman/MemoirsView.vue')
-  },
-  {
     path: '/oldman/Login',
     name: 'Login',
     component: () => import('../views/oldman/LoginView.vue')
@@ -74,7 +69,7 @@ const routes = [
     component: () => import('../views/oldman/HknowledgeView.vue'),
   },
   {
-    path: '/Oldman/userCenter',
+    path: '/oldman/userCenter',
     name: 'userCenter',
     component: () => import('../views/oldman/UserCenterView.vue')
   },
@@ -83,7 +78,23 @@ const routes = [
     name: 'HguideHypertension',
     component: () => import('../views/oldman/HguideHypertensionView.vue')
   },
-  
+  {
+    path: '/oldman/HguideHyperglycemia',
+    name: 'HguideHyperglycemia',
+    component: () => import('../views/oldman/HguideHyperglycemiaView.vue')
+  },
+  {
+    path: '/oldman/HguideHyperlipidemia',
+    name: 'HguideHyperlipidemia',
+    component: () => import('../views/oldman/HguideHyperlipidemiaView.vue')
+  },
+  {
+    path: '/oldman/HguideStrength',
+    name: 'HguideStrength',
+    component: () => import('../views/oldman/HguideStrengthView.vue')
+  }
+
+
 ]
 
 const router = new VueRouter({

@@ -14,6 +14,7 @@ export const useTokenStore = defineStore('token', {
         username: '',
         gender: null,
         faction: '',
+        id: ''
     }),
     // 定义修改状态的方法
     actions: {
@@ -23,12 +24,14 @@ export const useTokenStore = defineStore('token', {
             this.username = decodedToken.username;
             this.gender = decodedToken.gender;
             this.faction = decodedToken.faction;
+            this.id = decodedToken.id;
         },
         removeToken() {
             this.token = null;
             this.username = '';
             this.gender = null;
             this.faction = '';
+            this.id = '';
         }
     }
 });
