@@ -23,15 +23,15 @@
                 </div>
                 <div class="logoContent">老年健康服务平台</div>
                 <div class="nav-links">
-                    <div class="ai"><router-link :to="{ path: '/Oldman/Aianswer' }" class="ai-inner"><i>AI</i>
-                            答疑解惑</router-link></div>
+                    <div class="ai" @click="handleClick"><i>AI</i>
+                        答疑解惑</div>
                     <div class="nav-link"><router-link :to="{ path: '/oldman/index' }"
                             class="nav-link-inner">首页</router-link>
                     </div>
                     <div class="nav-link"><router-link :to="{ path: '/oldman/Hknowledge' }"
                             class="nav-link-inner">健康知识库</router-link></div>
-                    <div class="nav-link"><router-link :to="{ path: '/oldman/Healthyguide' }"
-                            class="nav-link-inner">健康指导</router-link></div>
+                    <div class="nav-link" @click="handleClick2">
+                        健康指导</div>
                 </div>
                 <div class="actions">
                     <!-- <div class="login" v-if="!isLoggedIn">
@@ -48,9 +48,9 @@
                             style="width: 2vw; position: relative; left: 10vw; cursor: pointer;"></div> -->
                     <!-- 下拉菜单 -->
                     <!-- <div class="dropdown-menu" v-if="showDropdown"> -->
-                        <!-- <ul> -->
-                            <!-- <li @click="userCenter" class="dropdown-item">个人中心</li> -->
-                            <!-- <li @click="logout" class="dropdown-item">退出登录</li>
+                    <!-- <ul> -->
+                    <!-- <li @click="userCenter" class="dropdown-item">个人中心</li> -->
+                    <!-- <li @click="logout" class="dropdown-item">退出登录</li>
                         </ul>
                     </div> -->
                 </div>
@@ -184,6 +184,26 @@ export default {
         }
     },
     methods: {
+        handleClick() {
+            if (localStorage.getItem('token')) {
+                // 判断是否登录
+                this.$router.replace({ path: '/oldman/Aianswer' });
+            } else {
+                // 如果没有 token，跳转到登录页面
+                alert('请先登录');
+                this.$router.replace({ path: '/oldman/Login' });
+            }
+        },
+        handleClick2() {
+            if (localStorage.getItem('token')) {
+                // 判断是否登录
+                this.$router.replace({ path: '/oldman/Healthyguide' });
+            } else {
+                // 如果没有 token，跳转到登录页面
+                alert('请先登录');
+                this.$router.replace({ path: '/oldman/Login' });
+            }
+        },
         logout() {
             localStorage.clear();
             this.$router.replace({ path: '/oldman/Login' });

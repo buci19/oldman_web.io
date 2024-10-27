@@ -33,9 +33,7 @@
         </div>
         <div class="button">
             <el-row>
-                <router-link :to="{ path: '/Oldman/Aianswer' }">
-                    <el-button type="primary" plain>ai问答</el-button>
-                </router-link>
+                <el-button type="primary" plain @click="handClick">ai问答</el-button>
                 <router-link :to="{ path: '/oldman/Hknowledge' }">
                     <el-button plain style="margin-left: 2vw;">进入了解</el-button>
                 </router-link>
@@ -82,6 +80,17 @@ export default {
         }
     },
     methods: {
+        handClick() {
+            // 判断是否登录
+            if (localStorage.getItem('token')) {
+                // 如果 token 存在，则假设用户已经登录
+                this.$router.replace({ path: '/oldman/Aianswer' });
+            } else {
+                // 如果没有 token，跳转到登录页面
+                alert('请先登录');
+                this.$router.replace({ path: '/oldman/Login' });
+            }
+        },
         checkLogin() {
             if (localStorage.getItem('token')) {
                 this.isLoggedIn = true;
