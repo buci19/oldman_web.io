@@ -9,8 +9,14 @@ import { getToken } from '@/utils/jwtUtils';
 // import pluginState from 'pinia-plugin-persistedstate'
 import { createPinia } from 'pinia';
 
+/* eslint-disable */
+// 全局设置退出浏览器自动清理localstore
+window.addEventListener('beforeunload', function (event) {
+  localStorage.clear();
+})
+
 // 全局设置cookie
-Vue.prototype.$setCookie = function(name, value, seconds) {
+Vue.prototype.$setCookie = function (name, value, seconds) {
   seconds = seconds || 0;
   var expires = "";
   if (seconds != 0) {

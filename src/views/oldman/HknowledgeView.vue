@@ -251,7 +251,7 @@ export default {
 .body {
     width: 100%;
     overflow-x: hidden;
-    background-color: #d8e5f7;
+    background: linear-gradient(to bottom right, #afccff, #cbbdff);
 }
 
 /* 导航栏 */
@@ -312,7 +312,10 @@ export default {
     width: 100%;
     overflow: hidden;
     border-bottom: 1px solid #aba8a8;
-    background-color: #fff;
+    /* background-color: #fff; */
+    position: fixed;
+    z-index: 1000;
+    backdrop-filter: blur(15px);
 }
 
 .header {
@@ -322,9 +325,8 @@ export default {
     display: flex;
     align-items: center;
     /* border-bottom: 1px solid #716565; */
-    background-color: #fff;
+    /* background-color: #fff; */
     /* position: fixed; */
-    z-index: 1000;
     margin: 0 auto;
 }
 
@@ -539,6 +541,7 @@ export default {
     height: 1000px;
     margin: 30px auto;
     background-color: #fff;
+    border-radius: 5px;
 }
 
 .content .content-title {

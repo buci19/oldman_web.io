@@ -26,12 +26,11 @@
                     一般患者可出现可有血糖升高、口渴、多饮、多尿、乏力、体重减轻等症状。长期高血糖还会导致全身微动脉血管病变，可导致相应器官损害，发生糖尿病肾病、糖尿病视网膜病变、糖尿病神经病变、糖尿病足等。高血糖没有传染性，也没有潜伏期。
                     <br>高血糖在治疗时需要针对病因治疗，一般生理性高血糖不需要特殊治疗。病理性的高血糖需要针对病因进行相应的治疗，而通常在临床上多会采取药物治疗，控制血糖正常。对于因嗜铬细胞瘤、胰高血糖素瘤等疾病引起的高血糖需要手术治疗，切出肿瘤，达到治疗的目的。
                 </div>
-
                 <div class="Ctext-middle">相关推荐</div>
                 <router-link :to="{ path: '/oldman/HguideHypertension' }">
                     <div class="content-inner">
                         <div class="Cinner-Images">
-                            <img src="@/assets/images/HknowHabits1.jpg" alt="">
+                            <img src="@/assets/images/HguideHypertension.png" alt="">
                         </div>
                         <div class="Cinner-text">
                             <div class="Cinner-title">高血压</div>
@@ -43,10 +42,10 @@
                         </div>
                     </div>
                 </router-link>
-                <router-link :to="{ path: '/oldman/HguideHyperlipidemia' }">
+                <router-link :to="{ path: '/oldman/HguideBronchitis' }">
                     <div class="content-inner">
                         <div class="Cinner-Images">
-                            <img src="@/assets/images/HknowHabits1.jpg" alt="">
+                            <img src="@/assets/images/HguideBronchitis.png" alt="">
                         </div>
                         <div class="Cinner-text">
                             <div class="Cinner-title">慢性支气管炎</div>
@@ -66,7 +65,7 @@
 
 </script>
 
-<style scoped>
+<!-- <style scoped>
 .body {
     width: 100%;
     overflow: hidden;
@@ -235,5 +234,152 @@
         height: 260px;
     }
 
+} -->
+<!-- </style> -->
+<style scoped>
+.body {
+    width: 100vw;
+    height: 100vh;
+    overflow-x: hidden;
+}
+
+/* 导航栏 */
+.header {
+    width: 100vw;
+    height: 9vh;
+    background: #fff;
+    display: flex;
+    align-items: center;
+    position: fixed;
+    z-index: 1000;
+}
+
+.header .return {
+    width: 5vw;
+    display: flex;
+    align-items: center;
+    margin-left: 1vw;
+    font-size: 1vw;
+    color: #666565;
+}
+
+.header .return:hover {
+    color: rgb(161, 82, 236);
+
+}
+
+.header .return img {
+    width: 1vw;
+}
+
+.header-logo {
+    margin-left: 1vw;
+}
+
+.header-title {
+    font-size: 1.5vw;
+    font-weight: bold;
+}
+
+
+.content {
+    width: 100vw;
+    height: 91vh;
+    margin-top: 9vh;
+    overflow-y: hidden;
+}
+
+/* 左边视频 */
+.content .content-video {
+    margin-left: 2vw;
+    float: left;
+}
+
+.content .video {
+    width: 66vw;
+    height: 91vh;
+}
+
+/* 右边文本 */
+.content .content-text {
+    height: 91vh;
+    background-color: #fff;
+    padding: 0 1vw 0 1vw;
+    margin-left: 69vw;
+    margin-right: 2vw;
+    border-radius: 1vh;
+}
+
+.content-text .Ctext-header {
+    height: 4vh;
+    border-bottom: 1px solid #ccc;
+    margin-bottom: 1vh;
+    font-weight: bold;
+}
+
+.content-text .Ctext-title {
+    font-size: 24px;
+    color: skyblue;
+}
+
+.content-text .Ctext-content {
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 2vh;
+    overflow-y: auto;
+    height: 40vh;
+}
+
+.content-text .Ctext-content::-webkit-scrollbar {
+    display: none;
+}
+
+.content-text .Ctext-middle {
+    margin-top: 1vh;
+    font-weight: bold;
+}
+
+.content-inner {
+    height: 16vh;
+    margin-top: 1vw;
+    border-radius: 0.5vw;
+}
+
+.content-inner:hover {
+    background-color: #e7e5e5;
+}
+
+.content-inner .Cinner-Images img {
+    width: 12vw;
+    height: 14vh;
+    float: left;
+    border-radius: 1vh;
+    margin: 1vh 0 1vh 0.5vw;
+}
+
+.content-inner .Cinner-text {
+    margin: 0 0.5vw 0 13vw;
+}
+
+.content-inner .Cinner-title {
+    color: skyblue;
+    font-size: 1.2vw;
+    padding-top: 1vh;
+    margin-bottom: 1vh;
+}
+
+.content-inner .Cinner-introduce {
+    color: #666565;
+    font-size: 17px;
+    line-height: 24px;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-top: 8px;
+}
+
+.content-inner .Cinner-introduce:hover {
+    color: rgb(147, 172, 241);
 }
 </style>

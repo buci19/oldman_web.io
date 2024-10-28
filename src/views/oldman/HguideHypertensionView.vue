@@ -25,25 +25,26 @@
                 </div>
 
                 <div class="Ctext-middle">相关推荐</div>
-                <router-link :to="{ path: '/oldman/HguideHypertension' }">
+                <router-link :to="{ path: '/oldman/HguideHyperglycemia' }">
                     <div class="content-inner">
                         <div class="Cinner-Images">
-                            <img src="@/assets/images/HknowHabits1.jpg" alt="">
+                            <img src="@/assets/images/HguideHyperglycemia.png" alt="">
                         </div>
                         <div class="Cinner-text">
-                            <div class="Cinner-title">高血脂</div>
+                            <div class="Cinner-title">高血糖</div>
                             <div class="Cinner-introduce">
-                                高脂血症，也称高血脂或血脂异常，通常指血浆中甘油三酯和（或）总胆固醇升高，低密度脂蛋白胆固醇升高和高密度脂蛋白胆固醇降低。该症的发生可见于不同年龄和性别的人群，尤其常见于50~69岁人群，有明显的遗传倾向。疾病的发病原因包括基因突变、多种环境因素，如不良饮食习惯、体力活动不足、肥胖等，以及其他疾病如糖尿病、肾病综合征、肝脏疾病等。
-                                <br>高脂血症的典型症状包括黄色瘤、早发性角膜环、眼底改变，但在大多数情况下，症状并不明显，通常在因其他疾病就诊或常规体检时被发现。高脂血症不具有传染性。
-                                <br>高脂血症的治疗主要包括生活方式干预和药物治疗。生活方式的改变包含改善饮食习惯、增加体力活动等。药物治疗主要有他汀类调脂药、贝特类调脂药、烟酸和高纯度鱼油等。如果患者同时患有重度肥胖，也可以考虑进行减重手术。积极的治疗有利于疾病的预后，但需要注意的是，高脂血症存在引发冠心病、脑血管病等并发疾病的风险。
+                                高血糖指的是血液中的葡萄糖含量高于正常值的范围。在临床上空腹血糖正常值为4.4~6.1mmol/L。餐后2小时血糖正常值为≤7.8
+                                mmol/L。如果空腹血糖高于6.1mmol/L，餐后2小时血糖高于7.8mmol/L，均可以称为高血糖。<br>高血糖不是一种疾病的诊断，只是一种血糖监测结果的判定，高血糖不完全等于糖尿病。高血糖可能是由于遗传因素、环境因素等原因导致的。
+                                一般患者可出现可有血糖升高、口渴、多饮、多尿、乏力、体重减轻等症状。长期高血糖还会导致全身微动脉血管病变，可导致相应器官损害，发生糖尿病肾病、糖尿病视网膜病变、糖尿病神经病变、糖尿病足等。高血糖没有传染性，也没有潜伏期。
+                                <br>高血糖在治疗时需要针对病因治疗，一般生理性高血糖不需要特殊治疗。病理性的高血糖需要针对病因进行相应的治疗，而通常在临床上多会采取药物治疗，控制血糖正常。对于因嗜铬细胞瘤、胰高血糖素瘤等疾病引起的高血糖需要手术治疗，切出肿瘤，达到治疗的目的。
                             </div>
                         </div>
                     </div>
                 </router-link>
-                <router-link :to="{ path: '/oldman/HguideHypertension' }">
+                <router-link :to="{ path: '/oldman/HguideBronchitis' }">
                     <div class="content-inner">
                         <div class="Cinner-Images">
-                            <img src="@/assets/images/HknowHabits1.jpg" alt="">
+                            <img src="@/assets/images/HguideBronchitis.png" alt="">
                         </div>
                         <div class="Cinner-text">
                             <div class="Cinner-title">慢性支气管炎</div>
@@ -152,6 +153,12 @@
 .content-text .Ctext-content {
     border-bottom: 1px solid #ccc;
     padding-bottom: 2vh;
+    overflow-y: auto;
+    height: 40vh;
+}
+
+.content-text .Ctext-content::-webkit-scrollbar {
+    display: none;
 }
 
 .content-text .Ctext-middle {
@@ -199,7 +206,8 @@
     text-overflow: ellipsis;
     margin-top: 8px;
 }
-.content-inner .Cinner-introduce:hover{
+
+.content-inner .Cinner-introduce:hover {
     color: rgb(147, 172, 241);
 }
 </style>

@@ -3,7 +3,8 @@
     <div class="body">
         <div class="nav">
             <router-link title="返回首页" :to="{ path: '/oldman/index' }">首页</router-link>&nbsp;&nbsp;>&nbsp;&nbsp;
-            <router-link title="返回健康知识库" :to="{ path: '/oldman/Hknowledge' }">健康知识库</router-link>&nbsp;&nbsp;>&nbsp;&nbsp;
+            <router-link title="返回健康知识库"
+                :to="{ path: '/oldman/Hknowledge' }">健康知识库</router-link>&nbsp;&nbsp;>&nbsp;&nbsp;
             <router-link :to="{ path: '/oldman/HknowDiseasePrevention' }">疾病预防</router-link>
         </div>
         <div class="title">
@@ -216,7 +217,7 @@ export default {
     line-height: 20vh;
     text-align: center;
     font-size: 0.8vw;
-    border-top:1px solid #000;
+    border-top: 1px solid #000;
 }
 
 .footer a {
