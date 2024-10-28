@@ -14,5 +14,7 @@ module.exports = defineConfig({
         }
       }
     }
-  }
+  },
+  // 设置 assetsPublicPath
+  publicPath: './' 
 })
