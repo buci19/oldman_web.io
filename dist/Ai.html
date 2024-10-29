@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            overflow: hidden;
+            /* 隐藏滚动条 */
+        }
+
+        html,
+        body {
+            width: 100%;
+            height: 100%;
+            background-color: rgb(148, 121, 228);
+            overflow: hidden;
+
+        }
+
+        .body_index {
+            width: 90vw;
+            height: 96vh;
+            background-color: rgb(240, 248, 255);
+            position: relative;
+            top: 2vh;
+            right: 2vw;
+            border-radius: 2%;
+            overflow: hidden;
+            float: right;
+        }
+
+        .ai_font {
+            position: relative;
+            top: 3vh;
+            left: 2vw;
+            font-size: 20px;
+            font-weight: bold;
+            width: 10vw;
+            height: 5vh;
+            text-align: center;
+            display: flex;
+            /* 使用Flexbox */
+            justify-content: center;
+            /* 水平居中 */
+            align-items: center;
+            /* 垂直居中 */
+            /* background-color: antiquewhite; */
+        }
+
+        .nav {
+            width: 78vw;
+            height: 15vh;
+            background-color: rgb(240, 248, 255);
+            position: relative;
+            top: 10vh;
+            left: 6vw;
+            border-radius: 5%;
+        }
+
+        .nav_font {
+            position: relative;
+            width: 40vw;
+            font-size: 31px;
+            font-weight: bold;
+            display: flex;
+            right: 30vw;
+            top: 5vh;
+            /* background-color: beige; */
+            float: right;
+            letter-spacing: 4px;
+        }
+
+        .nav_img {
+            width: 10vw;
+            height: 13vh;
+            /* background-color: aquamarine; */
+            position: relative;
+            left: 0vw;
+            float: left;
+        }
+
+        .nav_img img {
+            width: 8vw;
+            height: 15vh;
+        }
+
+        .left_nav_img {
+            width: 6vw;
+            height: 30vh;
+            /* background-color: antiquewhite; */
+            float: left;
+            position: relative;
+            left: 1vw;
+            top: 3vh;
+        }
+
+        .left_nav_img img {
+            width: 6vw;
+        }
+
+        .left_nav_font {
+            position: relative;
+            width: 6vw;
+            font-size: 20px;
+            font-weight: bold;
+            bottom: 16vh;
+            color: white;
+            left: 3vh;
+            /* background-color: beige; */
+            float: left;
+        }
+
+        .nav_bottom_font {
+            position: relative;
+            width: 45vw;
+            font-size: 16px;
+            /* font-weight: bold; */
+            /* display: flex; */
+            right: 25vw;
+            top: 5vh;
+            /* background-color: beige; */
+            float: right;
+            letter-spacing: 4px;
+        }
+
+        .nav_div1 {
+            width: 20vw;
+            height: 25vh;
+            background-color: rgb(227, 239, 251);
+            position: relative;
+            left: 10vw;
+            top: 28vh;
+            float: left;
+            border-radius: 5%;
+        }
+
+        .nav_div2 {
+            width: 20vw;
+            height: 25vh;
+            background-color: rgb(227, 239, 251);
+            position: relative;
+            left: 12vw;
+            top: 28vh;
+            border-radius: 5%;
+            border-radius: 5%;
+            float: left;
+        }
+
+        .nav_div3 {
+            width: 20vw;
+            ;
+            height: 25vh;
+            background-color: rgb(227, 239, 251);
+            position: relative;
+            float: right;
+            top: 28vh;
+            border-radius: 5%;
+            right: 16vw;
+        }
+
+        .span-block {
+            display: inline-block;
+            /* 转换为内联块级元素 */
+            width: 20vw;
+            /* 设置宽度 */
+            white-space: nowrap;
+            /* 防止内容换行 */
+            overflow: hidden;
+            /* 超出部分隐藏 */
+            text-overflow: ellipsis;
+            /* 可选，显示省略号表示有内容被截断 */
+            line-height: 2em;
+        }
+
+        .news-list {
+            list-style-type: none;
+            /* 移除列表项前的标记 */
+            padding: 0;
+            /* 移除默认的填充 */
+            margin-top: 1vh;
+        }
+
+        .news-list li {
+            margin-bottom: 10px;
+            /* 列表项之间的间距 */
+            overflow: hidden;
+            /* 隐藏溢出内容 */
+            text-overflow: ellipsis;
+            /* 显示省略号表示有溢出内容 */
+            white-space: nowrap;
+            /* 防止文本换行 */
+            padding: 5px;
+            /* 可选：为列表项添加内边距 */
+            border-bottom: 1px solid #ccc;
+            /* 可选：为列表项添加下边框 */
+        }
+        .nav_foot{
+            width: 70vw;
+            height: 10vh;
+            background-color: rgb(227, 239, 251);
+            position: relative;
+            top: 60vh;
+            left: 10vw;
+            border-radius: 30px;
+            font-size: 24px;
+        }
+        .nav_font_text{
+            position: relative;
+            right: 38vw;
+            top: 3vh;
+            color: rgb(105, 173, 247);
+            font-family: "宋体";
+        }
+        .news_button{
+            position: relative;
+            top: 25vh;
+            left: 10vw;
+            background-color: rgb(240, 248, 255);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="body_index">
+        <!-- 导航栏主页 -->
+        <div class="ai_font">智韵天成</div>
+        <div class="nav">
+            <div class="nav_img"><img src="img/robot.png" alt=""></div>
+            <span class="nav_font">智韵天成，生活健康全能助手</span>
+            <span class="nav_bottom_font">作为你的智能伙伴，我可以跟您聊天、出主意，也能答疑解惑</span>
+        </div>
+        <div class="news_button">
+            <button id="changeContent" style="background-color: rgb(240, 248, 255); border: rgb(240, 248, 255); color: rgb(171, 150, 235);">换一换</button>
+        </div>
+        <!-- 热搜榜之类的盒子 -->
+        <div class="nav_div1">
+            <h3 style="text-align: center;">热搜榜</h3>
+            <ul class="news-list" id="news-list1">
+                <li>1、华为全球创新产品发布会在巴塞罗那举行</li>
+                <li>2、湖南70岁爷爷与15岁女孩之间的不寻常故事曝光</li>
+                <li>3、科学家发现新型能源，有望改变世界能源格局</li>
+                <li>4、国际空间站迎来新一批宇航员入驻</li>
+            </ul>
+            <ul class="news-list" style="display: none;" id="news-list2">
+                <li>5、华为全球创新产品发布会在巴塞罗那举行</li>
+                <li>2、湖南70岁爷爷与15岁女孩之间的不寻常故事曝光</li>
+                <li>3、科学家发现新型能源，有望改变世界能源格局</li>
+                <li>4、国际空间站迎来新一批宇航员入驻</li>
+            </ul>
+        </div>
+        <div class="nav_div2">
+            <h3 style="text-align: center;">热搜榜</h3>
+            <ul class="news-list">
+                <li>1、华为全球创新产品发布会在巴塞罗那举行</li>
+                <li>2、湖南70岁爷爷与15岁女孩之间的不寻常故事曝光</li>
+                <li>3、科学家发现新型能源，有望改变世界能源格局</li>
+                <li>4、国际空间站迎来新一批宇航员入驻</li>
+            </ul>
+        </div>
+        <div class="nav_div3">
+            <h3 style="text-align: center;">热搜榜</h3>
+            <ul class="news-list" >
+                <li>1、华为全球创新产品发布会在巴塞罗那举行</li>
+                <li>2、湖南70岁爷爷与15岁女孩之间的不寻常故事曝光</li>
+                <li>3、科学家发现新型能源，有望改变世界能源格局</li>
+                <li>4、国际空间站迎来新一批宇航员入驻</li>
+            </ul>
+        </div>
+        <!-- 页脚 -->
+        <div class="nav_foot">
+            <div class="nav_font_text">点击右边可进行智能ai对话</div>
+        </div>
+    </div>
+    <!-- 侧边栏 -->
+    <div class="left_nva">
+        <div class="left_nav_img"><img src="img/robot.png" alt=""></div>
+        <div class="left_nav_font">智韵天成</div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
+    <script src="https://www.ownthink.com/bot/js/robot.js?appid=5c65ef84173d4c8cb99c5bc4b523d619" type="text/javascript"
+        charset="utf-8"></script>
+    <script>
+        
+        document.getElementById('changeContent').addEventListener('click',function() {
+            var news_list1 = document.getElementById('news-list1');
+            var news_list2 = document.getElementById('news-list2');
+            if(news_list1.style.display == 'none'){
+                news_list1.style.display = 'block';
+                news_list2.style.display = 'none';
+            }else{
+                news_list1.style.display = 'none';
+                news_list2.style.display = 'block';
+            }
+        })
+
+        
+        // 导航栏文字动画
+        var textWrapper = document.querySelector('.nav_font');
+        textWrapper.innerHTML = textWrapper.textContent.replace(/\S/g, "<span class='letter'>$&</span>");
+
+        anime.timeline({ loop: true })
+            .add({
+                targets: '.nav_font .letter',
+                scale: [4, 1],
+                opacity: [0, 1],
+                translateZ: 0,
+                easing: "easeOutExpo",
+                duration: 950,
+                delay: (el, i) => 70 * i
+            }).add({
+                targets: '.nav_font',
+                opacity: 0,
+                duration: 1000,
+                easing: "easeOutExpo",
+                delay: 1000
+            });
+    </script>
+</body>
+
+</html>
