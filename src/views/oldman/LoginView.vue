@@ -10,24 +10,20 @@
             <form action="">
                 <!-- 用户名输入框 -->
                 <div class="userName">
-                    <input type="text" v-model="loginForm.username" placeholder="请输入用户名" style="height: 45px; width: 370px; border-radius: 15px; border-color: white; padding-left: 10px;
-                        text-indent: 20px;">
+                    <input type="text" v-model="loginForm.username" placeholder="请输入用户名">
                 </div>
                 <!-- 密码输入框 -->
                 <div class="passWd">
-                    <input type="password" v-model="loginForm.password" placeholder="请输入用户名" style="height: 45px; width: 370px; border-radius: 15px; border-color: white; padding-left: 10px;
-                        text-indent: 20px;">
+                    <input type="password" v-model="loginForm.password" placeholder="请输入密码">
                 </div>
                 <!-- 登录按钮 -->
                 <div class="login_bottom">
-                    <input type="button" @click="login" class="login-button" value="登录" style="height: 38px; width: 150px; border-radius: 15px;
-                     border: none; padding-left: 10px; font-size: 23px; font-family: 宋体; font-weight: bold;
-                     background: linear-gradient(-200deg, #fac0e7, #aac2ee); color: #fff; ">
+                    <input type="button" @click="login" class="login-button" value="登录">
                 </div>
             </form>
             <!-- 写一个跳转注册的文字，使用超链接来接受 -->
             <div class="registerView">
-                <router-link :to="{ path: '/oldman/Register' }">还没注册？</router-link>
+                还没注册？<router-link :to="{ path: '/oldman/Register' }">立即注册</router-link>
             </div>
         </div>
         <div class="square">
@@ -105,6 +101,132 @@ export default {
 </script>
 
 <style scoped>
+html,
+body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    /* 可选：防止水平滚动条 */
+}
+
+.body {
+    height: 100vh;
+    /* 视口高度的100% */
+    background-position: center;
+    /* 背景图片居中显示 */
+    position: relative;
+    /* 如果需要相对于容器定位其他元素 */
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+    /* background: linear-gradient(to bottom right, rgb(211, 187, 240), rgb(178, 102, 255)); */
+    background: linear-gradient(200deg, #e3c5eb, #a9c1ed);
+    overflow: hidden;
+}
+
+
+/* 中间的登录页面 */
+.center {
+    width: 450px;
+    height: 600px;
+    margin:70px auto;
+    border-radius: 20px;
+    background-color: #ffffff;
+    box-shadow: 0 0 8px gray;
+    position: relative;
+}
+
+.logo {
+    width: 180px;
+    height: 180px;
+    margin:0 auto;
+    padding-top: 20px;
+}
+.logo img {
+    width: 180px;
+    height: 180px;
+}
+
+.login {
+    font-size: 32px;
+    text-align: center;
+}
+.login p {
+    color: rgb(74, 71, 71);
+    font-family: 微软雅黑; 
+    font-weight: bold;
+}
+
+/* 输入框位置 */
+.userName ,
+.passWd {
+    width: 380px;
+    height: 55px;
+    margin: 0 auto;
+    border-bottom: 1px solid #ccc;
+}
+.userName{
+    margin-top: 40px;
+    margin-bottom: 20px;
+}
+.passWd {
+    border-bottom: 1px solid #ccc;
+}
+/* 在输入框加入图标 */
+.userName input ,
+.passWd input{
+    width: 300px;
+    height: 55px; 
+    font-size: 18px;
+    border-radius: 15px;
+    border-color: white; 
+    padding-left: 10px;
+    text-indent: 20px;
+    background-position: left;
+    background-size: 25px 25px;
+    background-repeat: no-repeat;
+    border: none;
+    outline: none;
+}
+.userName input{
+    background-image: url("@/assets/images/user.png");
+}
+.passWd input {
+    background-image: url("@/assets/images/passwd.png");
+}
+
+.login_bottom {
+    margin: 40px auto 0 auto;
+    height: 48px;
+    width: 380px;
+    transition: transform 0.3s;
+}
+.login_bottom input{
+    cursor: pointer;
+    width: 380px;
+    height: 48px;  
+    border-radius: 15px;
+    border: none; 
+    font-size: 23px; 
+    font-family: 宋体; 
+    font-weight: bold;
+    background: linear-gradient(-200deg, #fac0e7, #aac2ee); 
+    color: #fff;
+}
+.login_bottom:hover {
+    transform: scale(1.1);
+}
+
+.registerView {
+    width: 380px;
+    margin: 30px auto;
+}
+.registerView a{
+    color: #595959;
+}
+
+/* 动画 */
 ul li {
     position: relative;
     border: 1px solid #fff;
@@ -208,125 +330,5 @@ ul li {
         transform: scale(5) rotateY(1000deg);
         opacity: 0;
     }
-}
-
-/* 中间的登录页面 */
-.center {
-    width: 32vw;
-    height: 75vh;
-    margin: auto;
-    /* margin-top: 200px; */
-    position: relative;
-    top: 60px;
-    border-radius: 20px;
-    background: linear-gradient(200deg, #e3beee, #9bb8ee);
-    box-shadow: 5px 5px 13px 5px gray;
-}
-
-.logo {
-    width: 90px;
-    height: 50px;
-}
-
-.logo img {
-    width: 190px;
-    height: 190px;
-    position: relative;
-    top: 40px;
-    left: 140px;
-}
-
-.login {
-    font-size: 32px;
-    text-align: center;
-    padding-top: 50px;
-    position: relative;
-    top: 130px;
-}
-
-.login p {
-    color: white;
-    font-weight: 600;
-}
-
-/* 输入框位置 */
-.userName {
-    position: relative;
-    left: 50px;
-    top: 140px;
-}
-
-/* 在输入框加入图标 */
-.userName input {
-    background-image: url("@/assets/images/user.png");
-    background-position: left;
-    background-size: 25px 25px;
-    background-repeat: no-repeat;
-    padding-left: 10px;
-}
-
-.passWd {
-    position: relative;
-    left: 50px;
-    top: 160px;
-}
-
-.login_bottom {
-    height: 60px;
-    width: 190px;
-    position: relative;
-    left: 160px;
-    top: 190px;
-    transition: transform 0.3s;
-}
-
-.login_bottom:hover {
-    transform: scale(1.1);
-}
-
-.userName input {
-    background-image: url("@/assets/images/user.png");
-    background-position: left;
-    background-size: 25px 25px;
-    background-repeat: no-repeat;
-    padding-left: 10px;
-}
-
-.passWd input {
-    background-image: url("@/assets/images/passwd.png");
-    background-position: left;
-    background-size: 25px 25px;
-    background-repeat: no-repeat;
-    padding-left: 10px;
-}
-
-.registerView {
-    position: relative;
-    left: 20px;
-    top: 200px;
-}
-
-html,
-body {
-    height: 100%;
-    margin: 0;
-    padding: 0;
-    overflow-x: hidden;
-    /* 可选：防止水平滚动条 */
-}
-
-.body {
-    height: 100vh;
-    /* 视口高度的100% */
-    background-position: center;
-    /* 背景图片居中显示 */
-    position: relative;
-    /* 如果需要相对于容器定位其他元素 */
-    background-size: cover;
-    background-attachment: fixed;
-    background-position: center;
-    /* background: linear-gradient(to bottom right, rgb(211, 187, 240), rgb(178, 102, 255)); */
-    background: linear-gradient(200deg, #e3c5eb, #a9c1ed);
-    overflow: hidden;
 }
 </style>

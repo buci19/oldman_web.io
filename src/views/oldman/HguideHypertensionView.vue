@@ -87,7 +87,7 @@
     display: flex;
     align-items: center;
     margin-left: 1vw;
-    font-size: 1vw;
+    font-size: 1.5vw;
     color: #666565;
 }
 
@@ -97,7 +97,7 @@
 }
 
 .header .return img {
-    width: 1vw;
+    width: 1.5vw;
 }
 
 .header-logo {
@@ -143,10 +143,11 @@
     border-bottom: 1px solid #ccc;
     margin-bottom: 1vh;
     font-weight: bold;
+    font-size: 24px;
 }
 
 .content-text .Ctext-title {
-    font-size: 24px;
+    font-size: 30px;
     color: skyblue;
 }
 
@@ -155,6 +156,7 @@
     padding-bottom: 2vh;
     overflow-y: auto;
     height: 40vh;
+    font-size: 22px;
 }
 
 .content-text .Ctext-content::-webkit-scrollbar {
@@ -164,6 +166,7 @@
 .content-text .Ctext-middle {
     margin-top: 1vh;
     font-weight: bold;
+    font-size: 24px;
 }
 
 .content-inner {
@@ -190,14 +193,14 @@
 
 .content-inner .Cinner-title {
     color: skyblue;
-    font-size: 1.2vw;
+    font-size: 1.5vw;
     padding-top: 1vh;
     margin-bottom: 1vh;
 }
 
 .content-inner .Cinner-introduce {
     color: #666565;
-    font-size: 17px;
+    font-size: 22px;
     line-height: 24px;
     display: -webkit-box;
     -webkit-line-clamp: 3;

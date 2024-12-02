@@ -145,7 +145,38 @@ const routes = [
     path: '/oldman/HguideSoftball',
     name: 'HguideSoftball',
     component: () => import('../views/oldman/HguideSoftballView.vue')
-  }
+  },
+  {
+    // 养老外卖
+    path: '/oldman/oldmanTakeOut',
+    name: 'oldmanTakeOut',
+    component: () => import('../views/oldman/oldmanTakeOut.vue')
+  },
+  {
+    // 养老助餐
+    path: '/oldman/oldmanEat',
+    name: 'oldmanEat',
+    component: () => import('../views/oldman/oldmanEat.vue')
+  },
+  {
+    // 养老医疗
+    path: '/oldman/oldmanMedical',
+    name: 'oldmanMedical',
+    component: () => import('../views/oldman/oldmanMedical.vue')
+  },
+  {
+    // 养老家政
+    path: '/oldman/oldmanHousekeeping',
+    name: 'oldmanHousekeeping',
+    component: () => import('../views/oldman/oldmanHouseKeeping.vue')
+  },
+  {
+    // 养老陪护
+    path: '/oldman/oldmanLove',
+    name: 'oldmanLove',
+    component: () => import('../views/oldman/oldmanLove.vue')
+  },
+
 
 
 ]

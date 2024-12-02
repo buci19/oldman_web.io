@@ -17,6 +17,8 @@
                             class="nav-link-inner">健康知识库</router-link></div>
                     <div class="nav-link"><router-link :to="{ path: '/oldman/Healthyguide' }"
                             class="nav-link-inner">健康指导</router-link></div>
+                    <div class="nav-link"><router-link :to="{path:'/oldman/oldmanTakeOut'}" class="nav-link-inner">智慧养老</router-link></div>
+
                 </div>
                 <div class="actions">
                     <div class="login" v-if="!isLoggedIn">
@@ -309,7 +311,7 @@ export default {
 .nav-links {
     display: flex;
     align-items: center;
-    margin-left: 200px;
+    margin-left: 150px;
 }
 
 .header .nav-links .ai {
@@ -372,7 +374,7 @@ export default {
     display: flex;
     color: #8a5b8e;
     align-items: center;
-    margin-left: 240px;
+    margin-left: 140px;
 }
 
 .header .actions .login {
@@ -420,7 +422,7 @@ export default {
     height: 50px;
     padding-top: 25px;
     margin-left: 50px;
-    font-size: 26px;
+    font-size: 36px;
 }
 
 .ul1 {
@@ -462,12 +464,12 @@ export default {
 
 .ul1 li .content-inner .Cinner-title {
     color: skyblue;
-    font-size: 26px;
+    font-size: 30px;
 }
 
 .ul1 li .content-inner .Cinner-introduce {
     color: #666565;
-    font-size: 17px;
+    font-size: 22px;
     line-height: 24px;
     display: -webkit-box;
     -webkit-line-clamp: 6;
@@ -484,7 +486,7 @@ export default {
 
 .ul2 {
     width: 1500px;
-    height: 700px;
+    height: 730px;
     margin: 30px auto;
     background-color: #fff;
     border-bottom-left-radius: 10px;
@@ -493,7 +495,7 @@ export default {
 
 .content .ul2 li {
     width: 400px;
-    height: 300px;
+    height: 330px;
     border-radius: 10px;
     float: left;
     margin: 0 25px 50px 60px;
@@ -525,20 +527,20 @@ export default {
 .content .ul2 li .content-inner .Cinner-title {
     background-color: #fff;
     color: skyblue;
-    font-size: 25px;
+    font-size: 30px;
 }
 
 .content .ul2 li .content-inner .Cinner-introduce {
     background-color: #fff;
     color: #666565;
-    font-size: 17px;
+    font-size: 22px;
     line-height: 1.5;
     display: -webkit-box;
     -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
     overflow: hidden;
     text-overflow: ellipsis;
-    height: 50px;
+    height: 70px;
 }
 
 .content .ul2 li .content-inner .Cinner-introduce:hover {

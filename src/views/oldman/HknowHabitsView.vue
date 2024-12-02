@@ -69,16 +69,17 @@ export default {
 
 <style scoped>
 .body {
-    width: 80vw;
+    width: 80%;
     margin: 0 auto;
 }
 
 .nav {
-    margin-top: 2vw;
+    margin-top: 30px;
 }
 
 .nav a {
     color: #403f3f;
+    font-size: 22px;
 }
 
 .nav a:hover {
@@ -86,16 +87,16 @@ export default {
 }
 
 .title {
-    height: 10vh;
-    line-height: 10vh;
-    font-size: 2vw;
+    height: 100px;
+    line-height: 100px;
+    font-size: 46px;
     font-weight: bold;
     text-align: center;
 }
 
 .content {
-    font-size: 1.2vw;
-    line-height: 4.5vh;
+    font-size: 26px;
+    line-height:40px;
 }
 
 .content1 {

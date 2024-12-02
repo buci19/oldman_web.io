@@ -11,9 +11,9 @@ import { createPinia } from 'pinia';
 
 /* eslint-disable */
 // 全局设置退出浏览器自动清理localstore
-window.addEventListener('beforeunload', function (event) {
-  localStorage.clear();
-})
+// window.addEventListener('beforeunload', function (event) {
+//   localStorage.clear();
+// })
 
 // 全局设置cookie
 Vue.prototype.$setCookie = function (name, value, seconds) {

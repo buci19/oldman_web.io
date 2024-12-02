@@ -1,21 +1,6 @@
 <!-- 健康知识库 -->
 <template>
     <div class="body">
-        <!-- <div class="header">
-            <router-link :to="{ path: '/oldman/index' }">
-                <div class="return">
-                    <img src="@/assets/images/return.png" alt="">
-                    <div title="首页">返回</div>
-                </div>
-            </router-link>
-            <div class="header-logo">
-                <img src="@/assets/images/logo.png" alt="" style="width: 4vw; max-width: 100px;">
-            </div>
-            <div class="header-title">老年健康服务平台</div>
-            <div class="header-user" @click="userCenter">
-                <img src="@/assets/images/user.png" alt="">
-            </div>
-        </div> -->
         <div class="HeaderFather">
             <div class="header">
                 <div id="logo">
@@ -32,6 +17,10 @@
                             class="nav-link-inner">健康知识库</router-link></div>
                     <div class="nav-link" @click="handleClick2">
                         健康指导</div>
+                    <div class="nav-link">
+                        <router-link :to="{ path: '/oldman/oldmanHousekeeping' }"
+                            class="nav-link-inner">智慧养老</router-link>
+                    </div>
                 </div>
                 <div class="actions">
                     <!-- <div class="login" v-if="!isLoggedIn">
@@ -204,6 +193,7 @@ export default {
                 this.$router.replace({ path: '/oldman/Login' });
             }
         },
+
         logout() {
             localStorage.clear();
             this.$router.replace({ path: '/oldman/Login' });
@@ -251,62 +241,10 @@ export default {
 .body {
     width: 100%;
     overflow-x: hidden;
-    background: linear-gradient(to bottom right, #afccff, #cbbdff);
+    background-color: rgba(245, 245, 245, 1);
 }
 
 /* 导航栏 */
-/* .header {
-    width: 100vw;
-    height: 9vh;
-    background: #fff;
-    display: flex;
-    align-items: center;
-    position: fixed;
-    z-index: 1000;
-}
-
-.header .return {
-    width: 5vw;
-    display: flex;
-    align-items: center;
-    margin-left: 1vw;
-    font-size: 1vw;
-    color: #666565;
-}
-
-.header .return:hover {
-    color: rgb(161, 82, 236);
-
-}
-
-.header .return img {
-    width: 1vw;
-}
-
-.header-logo {
-    margin-left: 1vw;
-}
-
-.header-title {
-    font-size: 1.5vw;
-    font-weight: bold;
-}
-
-.header-user {
-    margin-left: 62vw;
-    font-size: 1.2vw;
-    display: flex;
-    align-items: center;
-    color: #000;
-}
-
-.header-user>div {
-    padding-right: 0.5vw;
-}
-
-.header-user img {
-    width: 2vw;
-} */
 
 .HeaderFather {
     width: 100%;
@@ -381,7 +319,7 @@ export default {
 .nav-links {
     display: flex;
     align-items: center;
-    margin-left: 200px;
+    margin-left: 150px;
 }
 
 .header .nav-links .ai {
@@ -444,7 +382,7 @@ export default {
     display: flex;
     color: #8a5b8e;
     align-items: center;
-    margin-left: 240px;
+    margin-left: 140px;
 }
 
 .header .actions .login {
@@ -548,13 +486,13 @@ export default {
     height: 80px;
     line-height: 80px;
     margin-left: 26px;
-    font-size: 26px;
+    font-size: 36px;
     font-weight: 500;
 }
 
 .content ul li {
     width: 428px;
-    height: 410px;
+    height: 430px;
     float: left;
     margin: 0 0 28px 26px;
     border: 1.5px solid #cfcbcb;
@@ -585,20 +523,20 @@ export default {
 .content ul li .content-inner .Cinner-title {
     background-color: #fff;
     color: skyblue;
-    font-size: 25px;
+    font-size: 28px;
 }
 
 .content ul li .content-inner .Cinner-introduce {
     background-color: #fff;
     color: #666565;
-    font-size: 17px;
+    font-size: 22px;
     line-height: 1.5;
     display: -webkit-box;
     -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
     overflow: hidden;
     text-overflow: ellipsis;
-    height: 50px;
+    height: 70px;
 }
 
 .content ul li .content-inner .Cinner-introduce:hover {
